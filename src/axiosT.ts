@@ -3,9 +3,9 @@ import axios, {AxiosRequestConfig} from 'axios'
 import {AxiosInstanceT, AxiosStaticT} from './types'
 import {AxiosEventBus} from './AxiosEventBus'
 
-const utils: any = require('axios/lib/utils.js')
+import assignIn from 'lodash.assignin';
 
-export const axiosT: AxiosStaticT = utils.extend(new AxiosTransformer(), {
+export const axiosT: AxiosStaticT = assignIn(new AxiosTransformer(), {
   event: new AxiosEventBus(),
   create: (axiosConfig: AxiosRequestConfig) => {
     const axiosInstance = axios.create(axiosConfig)
@@ -18,5 +18,3 @@ export const axiosT: AxiosStaticT = utils.extend(new AxiosTransformer(), {
   spread: axios.spread,
   isAxiosError: axios.isAxiosError,
 })
-
-axiosT.instance.options()
