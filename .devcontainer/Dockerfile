@@ -15,7 +15,7 @@ RUN chmod 1777 /tmp && \
     echo -e 'export NVM_DIR="$HOME/.nvm" \n'\
     '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"\n'\
     '[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"' >> ~/.zshrc && \
-    nvm install --alias=default 16 && \
+    nvm install --alias=default 18 && \
     mkdir -p ~/.docker/cli-plugins/ && \
     curl -SL https://github.com/docker/compose/releases/download/v${DOCKER_COMPOSE_VERSION}/docker-compose-linux-$(arch) -o ~/.docker/cli-plugins/docker-compose && \
     chmod +x ~/.docker/cli-plugins/docker-compose && \
